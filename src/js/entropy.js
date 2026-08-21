@@ -143,8 +143,180 @@ window.Entropy = new (function() {
         "js": "01",
         "qs": "10",
         "ks": "11",
-    },
+      },
 
+      "tarot": {
+        // log2(78 * 2) = 7.2854 bits per card, with bias
+        // 128 events give 7 bits each
+        // 16 cards give 4 bits each
+        // 8 cards give 3 bits each
+        // 4 cards give 2 bits each
+        // Average (128 * 7 + 16 * 4 + 8 * 3 + 4 * 2) / (78 * 2) = 6.35 bits per event without bias
+        // Major Arcana
+        // 128 x 7 bits
+        "00": "0000000", // The Fool
+        "01": "0000001", // The Magician
+        "02": "0000010", // The High Priestess
+        "03": "0000011", // The Empress
+        "04": "0000100", // The Emperor
+        "05": "0000101", // The Hierophant
+        "06": "0000110", // The Lovers
+        "07": "0000111", // The Chariot
+        "08": "0001000", // Strength
+        "09": "0001001", // The Hermit
+        "10": "0001010", // Wheel of Fortune
+        "11": "0001011", // Justice
+        "12": "0001100", // The Hanged Man
+        "13": "0001101", // Death
+        "14": "0001110", // Temperance
+        "15": "0001111", // The Devil
+        "16": "0010000", // The Tower
+        "17": "0010001", // The Star
+        "18": "0010010", // The Moon
+        "19": "0010011", // The Sun
+        "20": "0010100", // Judgement
+        "21": "0010101", // The World
+        // Minor Arcana
+        "aw": "0010110", // Ace of Wands
+        "2w": "0010111", // Two of Wands
+        "3w": "0011000", // Three of Wands
+        "4w": "0011001", // Four of Wands
+        "5w": "0011010", // Five of Wands
+        "6w": "0011011", // Six of Wands
+        "7w": "0011100", // Seven of Wands
+        "8w": "0011101", // Eight of Wands
+        "9w": "0011110", // Nine of Wands
+        "tw": "0011111", // Ten of Wands
+        "pw": "0100000", // Page of Wands
+        "nw": "0100001", // Knight of Wands
+        "qw": "0100010", // Queen of Wands
+        "kw": "0100011", // King of Wands
+        "ac": "0100100", // Ace of Cups
+        "2c": "0100101", // Two of Cups
+        "3c": "0100110", // Three of Cups
+        "4c": "0100111", // Four of Cups
+        "5c": "0101000", // Five of Cups
+        "6c": "0101001", // Six of Cups
+        "7c": "0101010", // Seven of Cups
+        "8c": "0101011", // Eight of Cups
+        "9c": "0101100", // Nine of Cups
+        "tc": "0101101", // Ten of Cups
+        "pc": "0101110", // Page of Cups
+        "nc": "0101111", // Knight of Cups
+        "qc": "0110000", // Queen of Cups
+        "kc": "0110001", // King of Cups
+        "as": "0110010", // Ace of Swords
+        "2s": "0110011", // Two of Swords
+        "3s": "0110100", // Three of Swords
+        "4s": "0110101", // Four of Swords
+        "5s": "0110110", // Five of Swords
+        "6s": "0110111", // Six of Swords
+        "7s": "0111000", // Seven of Swords
+        "8s": "0111001", // Eight of Swords
+        "9s": "0111010", // Nine of Swords
+        "ts": "0111011", // Ten of Swords
+        "ps": "0111100", // Page of Swords
+        "ns": "0111101", // Knight of Swords
+        "qs": "0111110", // Queen of Swords
+        "ks": "0111111", // King of Swords
+        "ap": "1000000", // Ace of Pentacles
+        "2p": "1000001", // Two of Pentacles
+        "3p": "1000010", // Three of Pentacles
+        "4p": "1000011", // Four of Pentacles
+        "5p": "1000100", // Five of Pentacles
+        "6p": "1000101", // Six of Pentacles
+        "7p": "1000110", // Seven of Pentacles
+        "8p": "1000111", // Eight of Pentacles
+        "9p": "1001000", // Nine of Pentacles
+        "tp": "1001001", // Ten of Pentacles
+        "pp": "1001010", // Page of Pentacles
+        "np": "1001011", // Knight of Pentacles
+        "qp": "1001100", // Queen of Pentacles
+        "kp": "1001101", // King of Pentacles
+        // Major Arcana (reversed)
+        "00r": "1001110", // The Fool (reversed)
+        "01r": "1001111", // The Magician (reversed)
+        "02r": "1010000", // The High Priestess (reversed)
+        "03r": "1010001", // The Empress (reversed)
+        "04r": "1010010", // The Emperor (reversed)
+        "05r": "1010011", // The Hierophant (reversed)
+        "06r": "1010100", // The Lovers (reversed)
+        "07r": "1010101", // The Chariot (reversed)
+        "08r": "1010110", // Strength (reversed)
+        "09r": "1010111", // The Hermit (reversed)
+        "10r": "1011000", // Wheel of Fortune (reversed)
+        "11r": "1011001", // Justice (reversed)
+        "12r": "1011010", // The Hanged Man (reversed)
+        "13r": "1011011", // Death (reversed)
+        "14r": "1011100", // Temperance (reversed)
+        "15r": "1011101", // The Devil (reversed)
+        "16r": "1011110", // The Tower (reversed)
+        "17r": "1011111", // The Star (reversed)
+        "18r": "1100000", // The Moon (reversed)
+        "19r": "1100001", // The Sun (reversed)
+        "20r": "1100010", // Judgement (reversed)
+        "21r": "1100011", // The World (reversed)
+        // Minor Arcana (reversed)
+        "awr": "1100100", // Ace of Wands (reversed)
+        "2wr": "1100101", // Two of Wands (reversed)
+        "3wr": "1100110", // Three of Wands (reversed)
+        "4wr": "1100111", // Four of Wands (reversed)
+        "5wr": "1101000", // Five of Wands (reversed)
+        "6wr": "1101001", // Six of Wands (reversed)
+        "7wr": "1101010", // Seven of Wands (reversed)
+        "8wr": "1101011", // Eight of Wands (reversed)
+        "9wr": "1101100", // Nine of Wands (reversed)
+        "twr": "1101101", // Ten of Wands (reversed)
+        "pwr": "1101110", // Page of Wands (reversed)
+        "nwr": "1101111", // Knight of Wands (reversed)
+        "qwr": "1110000", // Queen of Wands (reversed)
+        "kwr": "1110001", // King of Wands (reversed)
+        "acr": "1110010", // Ace of Cups (reversed)
+        "2cr": "1110011", // Two of Cups (reversed)
+        "3cr": "1110100", // Three of Cups (reversed)
+        "4cr": "1110101", // Four of Cups (reversed)
+        "5cr": "1110110", // Five of Cups (reversed)
+        "6cr": "1110111", // Six of Cups (reversed)
+        "7cr": "1111000", // Seven of Cups (reversed)
+        "8cr": "1111001", // Eight of Cups (reversed)
+        "9cr": "1111010", // Nine of Cups (reversed)
+        "tcr": "1111011", // Ten of Cups (reversed)
+        "pcr": "1111100", // Page of Cups (reversed)
+        "ncr": "1111101", // Knight of Cups (reversed)
+        "qcr": "1111110", // Queen of Cups (reversed)
+        "kcr": "1111111", // King of Cups (reversed)
+        // 16 x 7 bits
+        "asr": "0000", // Ace of Swords (reversed)
+        "2sr": "0001", // Two of Swords (reversed)
+        "3sr": "0010", // Three of Swords (reversed)
+        "4sr": "0011", // Four of Swords (reversed)
+        "5sr": "0100", // Five of Swords (reversed)
+        "6sr": "0101", // Six of Swords (reversed)
+        "7sr": "0110", // Seven of Swords (reversed)
+        "8sr": "0111", // Eight of Swords (reversed)
+        "9sr": "1000", // Nine of Swords (reversed)
+        "tsr": "1001", // Ten of Swords (reversed)
+        "psr": "1010", // Page of Swords (reversed)
+        "nsr": "1011", // Knight of Swords (reversed)
+        "qsr": "1100", // Queen of Swords (reversed)
+        "ksr": "1101", // King of Swords (reversed)
+        "apr": "1110", // Ace of Pentacles (reversed)
+        "2pr": "1111", // Two of Pentacles (reversed)
+        // 8 x 3 bits
+        "3pr": "000", // Three of Pentacles (reversed)
+        "4pr": "001", // Four of Pentacles (reversed)
+        "5pr": "010", // Five of Pentacles (reversed)
+        "6pr": "011", // Six of Pentacles (reversed)
+        "7pr": "100", // Seven of Pentacles (reversed)
+        "8pr": "101", // Eight of Pentacles (reversed)
+        "9pr": "110", // Nine of Pentacles (reversed)
+        "tpr": "111", // Ten of Pentacles (reversed)
+        // 4 x 2 bits
+        "ppr": "00", // Page of Pentacles (reversed)
+        "npr": "01", // Knight of Pentacles (reversed)
+        "qpr": "10", // Queen of Pentacles (reversed)
+        "kpr": "11", // King of Pentacles (reversed)
+      }
     }
 
     // matchers returns an array of the matched events for each type of entropy.
@@ -177,10 +349,16 @@ window.Entropy = new (function() {
             // QH queen of hearts
             // KC king of clubs
             return str.match(/([A2-9TJQK][CDHS])/gi) || [];
+        },
+        tarot: function (str) {
+            // Format is Major Arcana from 00 to 21,
+            // or NumberSuit for Minor Arcana (similar to playing cards)
+            // with optional R for reversed
+          return str.match(/(([01][0-9]|2[01])|([atpnqk2-9][wpsc]))r?/gi) || [];
         }
     }
 
-    this.fromString = function(rawEntropyStr, baseStr) {
+    this.fromString = function (rawEntropyStr, baseStr) {
         // Find type of entropy being used (binary, hex, dice etc)
         var base = getBase(rawEntropyStr, baseStr);
         // Convert dice to base6 entropy (ie 1-6 to 0-5)
@@ -210,8 +388,8 @@ window.Entropy = new (function() {
             };
         }
         // Convert entropy events to binary
-        var entropyBin = base.events.map(function(e) {
-            return eventBits[base.str][e.toLowerCase()];
+        var entropyBin = base.events.map(function (e) {
+          return eventBits[base.str][e.toLowerCase()];
         }).join("");
         // Get average bits per event
         // which may be adjusted for bias if log2(base) is fractional
@@ -230,6 +408,140 @@ window.Entropy = new (function() {
             entropyHtml = entropyHtml.replace(/D/g, "<span class='card-suit diamond'>\u2666</span>");
             entropyHtml = entropyHtml.replace(/H/g, "<span class='card-suit heart'>\u2665</span>");
             entropyHtml = entropyHtml.replace(/S/g, "<span class='card-suit spade'>\u2660</span>");
+        } else if (base.asInt == 78 * 2) {
+          let entropyLower = entropyClean.toLowerCase();
+          entropyClean = "";
+          entropyHtml = "";
+          let charIndex = 0;
+          while (charIndex < entropyLower.length) {
+            let customStyle = '';
+            let cleanEvent = '';
+            let emoji = '';
+            let pair = entropyLower.substring(charIndex, charIndex + 2);
+            let reversed = entropyLower.substring(charIndex + 2, charIndex + 3) === "r";
+            if (pair.match(/[01][0-9]|2[01]/)) {
+              // Major Arcana
+              const emojis = {
+                '00': '🤡', // The Fool
+                '01': '🧙', // The Magician
+                '02': '👨🏻‍🏫', // The High Priestess
+                '03': '👸', // The Empress
+                '04': '🤴', // The Emperor
+                '05': '🪬', // The Hierophant
+                '06': '👩‍❤️‍👨', // The Lovers
+                '07': '🛻', // The Chariot
+                '08': '🏋️', // Strength
+                '09': '👳', // The Hermit
+                '10': '💰', // Wheel of Fortune
+                '11': '⚖️', // Justice
+                '12': '🪾', // The Hanged Man
+                '13': '💀', // Death
+                '14': '🧘', // Temperance
+                '15': '👹', // The Devil
+                '16': '🏰', // The Tower
+                '17': '⭐', // The Star
+                '18': '🌙', // The Moon
+                '19': '🌞', // The Sun
+                '20': '🧑‍⚖️', // Judgement
+                '21': '🌍', // The World
+              };
+              emoji = emojis[pair];
+              cleanEvent += pair;
+            } else if (pair.match(/[a2-9tpnqk][wpsc]/)) {
+              // Minor Arcana
+              const rank = pair[0];
+              const suit = pair[1];
+              const emojis = {
+                "w": {
+                  "a": "🃑", // Ace of Wands
+                  "2": "🃒", // Two of Wands
+                  "3": "🃓", // Three of Wands
+                  "4": "🃔", // Four of Wands
+                  "5": "🃕", // Five of Wands
+                  "6": "🃖", // Six of Wands
+                  "7": "🃗", // Seven of Wands
+                  "8": "🃘", // Eight of Wands
+                  "9": "🃙", // Nine of Wands
+                  "t": "🃚", // Ten of Wands
+                  "p": "🃛", // Page of Wands
+                  "n": "🃜", // Knight of Wands
+                  "q": "🃝", // Queen of Wands
+                  "k": "🃞", // King of Wands
+                },
+                "p": {
+                  "a": "🃁", // Ace of Pentacles
+                  "2": "🃂", // Two of Pentacles
+                  "3": "🃃", // Three of Pentacles
+                  "4": "🃄", // Four of Pentacles
+                  "5": "🃅", // Five of Pentacles
+                  "6": "🃆", // Six of Pentacles
+                  "7": "🃇", // Seven of Pentacles
+                  "8": "🃈", // Eight of Pentacles
+                  "9": "🃉", // Nine of Pentacles
+                  "t": "🃊", // Ten of Pentacles
+                  "p": "🃋", // Page of Pentacles
+                  "n": "🃌", // Knight of Pentacles
+                  "q": "🃍", // Queen of Pentacles
+                  "k": "🃎", // King of Pentacles
+                },
+                "s": {
+                  "a": "🂡", // Ace of Swords
+                  "2": "🂢", // Two of Swords
+                  "3": "🂣", // Three of Swords
+                  "4": "🂤", // Four of Swords
+                  "5": "🂥", // Five of Swords
+                  "6": "🂦", // Six of Swords
+                  "7": "🂧", // Seven of Swords
+                  "8": "🂨", // Eight of Swords
+                  "9": "🂩", // Nine of Swords
+                  "t": "🂪", // Ten of Swords
+                  "p": "🂫", // Page of Swords
+                  "n": "🂬", // Knight of Swords
+                  "q": "🂭", // Queen of Swords
+                  "k": "🂮", // King of Swords
+                },
+                "c": {
+                  "a": "🂱", // Ace of Cups
+                  "2": "🂲", // Two of Cups
+                  "3": "🂳", // Three of Cups
+                  "4": "🂴", // Four of Cups
+                  "5": "🂵", // Five of Cups
+                  "6": "🂶", // Six of Cups
+                  "7": "🂷", // Seven of Cups
+                  "8": "🂸", // Eight of Cups
+                  "9": "🂹", // Nine of Cups
+                  "t": "🂺", // Ten of Cups
+                  "p": "🂻", // Page of Cups
+                  "n": "🂼", // Knight of Cups
+                  "q": "🂽", // Queen of Cups
+                  "k": "🂾", // King of Cups
+                },
+              };
+              const colors = {
+                w: "green",
+                p: "orange",
+                s: "blue",
+                c: "red",
+              };
+              cleanEvent += pair;
+              emoji = emojis[suit][rank];
+              customStyle += "color: " + colors[suit] + ";";
+            } else {
+              // Invalid char, skip
+              charIndex++;
+            }
+            if (cleanEvent.length > 0) {
+              charIndex += 2;
+              if (reversed) {
+                charIndex++;
+                cleanEvent += "r";
+                customStyle += `transform: scaleY(-1);
+                  display: inline-block;`;
+              }
+              entropyHtml += "<span style='" + customStyle + "'>" + emoji + "</span>";
+              entropyClean += cleanEvent;
+            }
+          }
         }
         // Return the result
         var e = {
@@ -263,7 +575,7 @@ window.Entropy = new (function() {
         var cardMatches = matchers.card(str);
         if ((cardMatches.length >= hexMatches.length / 2 && autodetect) || baseStr === "card") {
             return {
-                ints: ints,
+                ints: [],
                 events: cardMatches,
                 matcher: matchers.card,
                 asInt: 52,
@@ -271,6 +583,18 @@ window.Entropy = new (function() {
                 str: "card",
             }
         }
+        var tarotMatches = matchers.tarot(str);
+        if (baseStr === "tarot") {
+            return {
+                ints: [],
+                events: tarotMatches,
+                matcher: matchers.tarot,
+                asInt: 78 * 2,
+                bitsPerEvent: (128 * 7 + 16 * 4 + 8 * 3 + 4 * 2) / (78 * 2), // see tarotBits
+                str: "tarot",
+            }
+        }
+
         var diceMatches = matchers.dice(str);
         if ((diceMatches.length == hexMatches.length && hexMatches.length > 0 && autodetect) || baseStr === "dice") {
             var ints = diceMatches.map(function(i) { return parseInt(i) });
